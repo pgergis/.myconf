@@ -9,4 +9,4 @@
 
 Install config tracking in your $HOME by running:
 
-  curl -Lks bit.do/pgergis-cfg-install | /bin/bash
+  curl -Lks bit.do/pgergis-dotfiles-install | /bin/bash
