@@ -1,17 +1,18 @@
 alias copy='xclip -sel clip'
 alias unquote='awk '"'"'{print substr($0, 2, length($0)-2)}'"'"''
+alias cddev='cd ~/Dropbox/dev/rc'
 
 ###########################
 ### 1Password Functions ###
 ###########################
 
-alias op-login='op signin my; eval $(op signin my)'
+alias op-login='eval $(op signin my)'
 
-op-get-pass() {
+fetch-pass() {
     op get item "$1" | jq '.details.fields[] | select(.designation=="password").value'
 }
 
-op-get-user() {
+fetch-user() {
     op get item "$1" | jq '.details.fields[] | select(.designation=="username").value'
 }
 
