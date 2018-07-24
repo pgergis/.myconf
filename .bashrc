@@ -131,6 +131,27 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+#is_mac_OS=yes
+
+if [ "$is_mac_OS" = yes ]; then
+    # ---------------------
+    # style the prompt
+    # ---------------------
+    style_user="\[${RS}${FWHT}\]"
+    style_path="\[${RS}${FCYN}\]"
+    style_chars="\[${RS}${FWHT}\]"
+    style_branch="${FRED}"
+    # ---------------------
+    # Build the prompt
+    # ---------------------
+    # Example with committed changes: username ~/documents/GA/wdi on master[+]
+    PS1="${style_user}\u"                    # Username
+    PS1+="${style_path} \w"                  # Working directory
+    PS1+="\$(prompt_git)"                    # Git details
+    PS1+="\n"                                # Newline
+    PS1+="${style_chars}\$ \[${RS}\]"     # $ (and reset color)
+else
+
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w$(prompt_git)\n\[\033[00m\]\$ '
     #DEFAULT: PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
@@ -139,6 +160,7 @@ else
     #DEFAULT: PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 unset color_prompt force_color_prompt
+fi
 
 # DEFAULT: If this is an xterm set the title to user@host:dir
 case "$TERM" in
