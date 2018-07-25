@@ -182,10 +182,19 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
+
+else
+    # Adds colors to LS for macOS
+    export CLICOLOR=1
+    # http://geoff.greer.fm/lscolors/
+    # Describes what color to use for which attribute (files, folders etc.)
+    #export LSCOLORS=fxexcxdxbxegedabagacad # PJ: turned off
+    export LSCOLORS=ExFxBxDxCxegedabagacad # for "Light" terminal themes
+    #export LSCOLORS=GxFxCxDxBxegedabagaced # for "Dark" terminal themes
 fi
 
 # colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
 alias ll='ls -alF'
