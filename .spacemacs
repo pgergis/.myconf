@@ -43,6 +43,7 @@ values."
      git
      go
      (haskell :variables haskell-process-type 'stack-ghci)
+     markdown
      org
      pdf-tools
      python
