@@ -34,3 +34,9 @@ export PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
+# Setting PATH for gcc cross-compiler
+export PATH="/usr/local/bin/aarch64-none-elf/bin:$PATH"
+
+# Set PATH to include support for Rust Cargo
+export PATH="$HOME/.cargo/bin:$PATH"
