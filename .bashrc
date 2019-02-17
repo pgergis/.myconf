@@ -131,7 +131,7 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-#is_mac_OS=yes
+is_mac_OS=yes
 
 if [ "$is_mac_OS" = yes ]; then
     # ---------------------
@@ -161,16 +161,6 @@ else
 fi
 unset color_prompt force_color_prompt
 fi
-
-# DEFAULT: If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u: \w$(prompt_git)\n\a\]$PS1"
-    # DEFAULT: PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -224,3 +214,7 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

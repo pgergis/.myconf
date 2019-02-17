@@ -32,7 +32,10 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # Setting PATH for gcc cross-compiler
-export PATH="/usr/local/bin/aarch64-none-elf/bin:$PATH"
+# export PATH="/usr/local/bin/aarch64-none-elf/bin:$PATH"
 
 # Set PATH to include support for Rust Cargo
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# Set PATH to include support for postgres cli
+export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
