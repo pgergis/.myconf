@@ -16,15 +16,7 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
-
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
+PATH="$HOME/.local/bin:$PATH"
 
 # set PATH to include support for pyenv
 export PATH="$HOME/.pyenv/bin:$PATH"
@@ -36,3 +28,6 @@ export PATH="/usr/local/bin/aarch64-none-elf/bin:$PATH"
 
 # Set PATH to include support for Rust Cargo
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# swap escape and caps keys
+setxkbmap -option caps:swapescape

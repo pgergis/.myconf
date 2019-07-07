@@ -1,6 +1,6 @@
 alias copy='xclip -sel clip'
 alias unquote='awk '"'"'{print substr($0, 2, length($0)-2)}'"'"''
-alias cddev='cd ~/Dropbox/dev/rc'
+alias cddev='cd ~/Dropbox/dev'
 alias photos-hdd-sync="unison /Volumes/STORAGE/Pictures/Original\ Files/ /Volumes/Photos/"
 
 ###########################

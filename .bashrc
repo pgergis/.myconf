@@ -125,32 +125,11 @@ if [ -n "$force_color_prompt" ]; then
 	# We have color support; assume it's compliant with Ecma-48
 	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
 	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+	color_prompt=true
     else
 	color_prompt=
     fi
 fi
-
-#is_mac_OS=yes
-
-if [ "$is_mac_OS" = yes ]; then
-    # ---------------------
-    # style the prompt
-    # ---------------------
-    style_user="\[${RS}${FWHT}\]"
-    style_path="\[${RS}${FCYN}\]"
-    style_chars="\[${RS}${FWHT}\]"
-    style_branch="${FRED}"
-    # ---------------------
-    # Build the prompt
-    # ---------------------
-    # Example with committed changes: username ~/documents/GA/wdi on master[+]
-    PS1="${style_user}\u"                    # Username
-    PS1+="${style_path} \w"                  # Working directory
-    PS1+="\$(prompt_git)"                    # Git details
-    PS1+="\n"                                # Newline
-    PS1+="${style_chars}\$ \[${RS}\]"     # $ (and reset color)
-else
 
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w$(prompt_git)\n\[\033[00m\]\$ '
@@ -160,24 +139,23 @@ else
     #DEFAULT: PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 unset color_prompt force_color_prompt
-fi
 
 # DEFAULT: If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u: \w$(prompt_git)\n\a\]$PS1"
-    # DEFAULT: PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
+# case "$TERM" in
+# xterm*|rxvt*)
+#     PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u: \w$(prompt_git)\n\a\]$PS1"
+#     # DEFAULT: PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+#     ;;
+# *)
+#     ;;
+# esac
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
 
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
@@ -224,3 +202,7 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
