@@ -1,3 +1,11 @@
+function cd () {
+    new_directory="$*";
+    if [ $# -eq 0 ]; then
+        new_directory=${HOME};
+    fi;
+    builtin cd "${new_directory}" && ls -alp
+}
+
 alias copy='xclip -sel clip'
 alias unquote='awk '"'"'{print substr($0, 2, length($0)-2)}'"'"''
 alias cddev='cd ~/Dropbox/dev'
