@@ -11,6 +11,7 @@ alias unquote='awk '"'"'{print substr($0, 2, length($0)-2)}'"'"''
 alias cddev='cd ~/Dropbox/dev'
 alias photos-hdd-sync="unison /Volumes/STORAGE/Pictures/Original\ Files/ /Volumes/Photos/"
 alias mit-scheme="/Applications/MIT-Scheme.app/Contents/Resources/mit-scheme"
+alias unixtime="date '+%s'"
 
 ###########################
 ### 1Password Functions ###

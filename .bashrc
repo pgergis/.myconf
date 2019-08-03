@@ -214,3 +214,5 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+export PIPENV_IGNORE_VIRTUALENVS=1
