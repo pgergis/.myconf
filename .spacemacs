@@ -26,7 +26,6 @@ This function should only modify configuration layer settings."
    ;; a layer lazily. (default t)
    dotspacemacs-ask-for-lazy-installation t
 
-   ;; If non-nil layers with lazy install support are lazy installed.
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
    dotspacemacs-configuration-layer-path '()
@@ -42,6 +41,7 @@ This function should only modify configuration layer settings."
      helm
      auto-completion (haskell :variables haskell-completion-backend 'intero)
      (c-c++ :variables c-basic-offset 2)
+     common-lisp
      dash
      django
      docker
@@ -59,11 +59,12 @@ This function should only modify configuration layer settings."
      lua
      markdown
      multiple-cursors
+     node
      org
      osx
      pdf
      (python :variables
-             python-formatter 'yapf)
+             python-formatter 'black)
      ruby
      rust
      (shell :variables
@@ -72,6 +73,9 @@ This function should only modify configuration layer settings."
      search-engine
      (scheme :variables
              geiser-mit-binary "/Applications/MIT-Scheme.app/Contents/Resources/mit-scheme")
+     ;; (slack :variables
+     ;;        slack-spacemacs-layout-name "@Candidco-Slack"
+     ;;        slack-spacemacs-layout-binding "s")
      spell-checking
      spotify
      syntax-checking
@@ -160,8 +164,8 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-use-spacelpa nil
 
    ;; If non-nil then verify the signature for downloaded Spacelpa archives.
-   ;; (default nil)
-   dotspacemacs-verify-spacelpa-archives nil
+   ;; (default t)
+   dotspacemacs-verify-spacelpa-archives t
 
    ;; If non-nil then spacemacs will check for updates at startup
    ;; when the current branch is not `develop'. Note that checking for
@@ -181,9 +185,6 @@ It should only modify the values of Spacemacs settings."
    ;; section of the documentation for details on available variables.
    ;; (default 'vim)
    dotspacemacs-editing-style 'vim
-
-   ;; If non-nil output loading progress in `*Messages*' buffer. (default nil)
-   dotspacemacs-verbose-loading nil
 
    ;; Specify the startup banner. Default value is `official', it displays
    ;; the official spacemacs logo. An integer value is the index of text
@@ -237,7 +238,7 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-colorize-cursor-according-to-state t
 
    ;; Default font or prioritized list of fonts.
-   dotspacemacs-default-font '("Source Code Pro"
+   dotspacemacs-default-font '("Input Sans"
                                :size 13.0
                                :weight normal
                                :width normal)
@@ -500,6 +501,19 @@ Put your configuration code here, except for variables that should be set
 before packages are loaded."
   (add-hook 'text-mode-hook 'spacemacs/toggle-visual-line-navigation-on)
   (setq projectile-indexing-method 'native)
+  ;; (slack-register-team
+  ;;  :name "candidco-slack"
+  ;;  :default t
+  ;;  :client-id ""
+  ;;  :client-secret ""
+  ;;  :token ""
+  ;;  :subscribed-channels '(office-nyc
+  ;;                         code
+  ;;                         eng
+  ;;                         eng-internal
+  ;;                         eng-warroom
+  ;;                         prod-eng-revenue-core
+  ;;                         slackbot))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

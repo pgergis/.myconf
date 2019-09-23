@@ -162,6 +162,14 @@ fi
 unset color_prompt force_color_prompt
 fi
 
+# append python virtual environment to prompt
+# (not automatic in some configurations, like using poetry)
+if [ ! -z "$VIRTUAL_ENV" ]; then
+    # set python virtual env for prompt
+    virtual_env="$(echo $VIRTUAL_ENV | sed 's|.*/||')"
+    PS1="(${virtual_env}) $PS1"
+fi
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
