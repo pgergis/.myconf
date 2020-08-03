@@ -31,3 +31,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 # swap escape and caps keys
 setxkbmap -option caps:swapescape
+if [ -e /home/pierre/.nix-profile/etc/profile.d/nix.sh ]; then . /home/pierre/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+export PATH="$HOME/.poetry/bin:$PATH"
