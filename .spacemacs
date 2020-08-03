@@ -40,7 +40,8 @@ This function should only modify configuration layer settings."
      ;; ----------------------------------------------------------------
      auto-completion (haskell :variables haskell-completion-backend 'intero)
      better-defaults
-     (c-c++ :variables c-basic-offset 2)
+     (c-c++ :variables c-basic-offset 4)
+     (cmake :variables cmake-enable-cmake-ide-support t)
      common-lisp
      dash
      django
@@ -531,4 +532,3 @@ before packages are loaded."
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
-
